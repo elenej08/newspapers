@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gazeti - თანამედროვე საზოგადოების მნიშვნელოვანი პრობლემების შესახებ">
+  <meta name="keywords" content="ბავშვთა შრომა, ფორმულა 1, სტრიტ არტი, თბილისი">
+  <title>Gazeti - მთავარი გვერდი</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="home-98">
+  <!-- Hero Section -->
+  <div class="hero-section-99">
+    <div class="heading-100">
+      <div class="frame-1-101">
+        <img src="{{ url_for('static', filename='images/gazeti-102.svg') }}" class="gazeti-102" alt="Gazeti Logo" />
+        <img src="{{ url_for('static', filename='images/vector-103.svg') }}" class="vector-103" alt="Design Element" />
+      </div>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="frame-2-104">
+      <!-- Article 1: Child Labour -->
+      <article class="article-1-105 loading">
+        <div class="rectangle-3-106">
+          <img src="{{ url_for('static', filename='images/bavsta-sroma-107.svg') }}" class="bavsta-sroma-107" alt="ბავშვთა შრომა" />
+          <div class="rectangle-5-108"></div>
+        </div>
+        <img src="{{ url_for('static', filename='images/rectangle-8-109.png') }}" class="rectangle-8-109" alt="ბავშვთა შრომის სურათი" />
+        <a href="{{ url_for('box1') }}" class="prototype-link">
+          <div class="button-110">წაიკითხე მეტი</div>
+        </a>
+      </article>
+
+      <!-- Article 2: F1 Ticket Prices -->
+      <article class="article-2-111 loading">
+        <div class="rectangle-3-112">
+          <img src="{{ url_for('static', filename='images/biletebi-113.svg') }}" class="biletebi-113" alt="F1 ბილეთები" />
+          <div class="rectangle-5-114"></div>
+        </div>
+        <img src="{{ url_for('static', filename='images/rectangle-8-115.png') }}" class="rectangle-8-115" alt="ფორმულა 1 სურათი" />
+        <a href="{{ url_for('box2') }}" class="prototype-link">
+          <div class="button-116">წაიკითხე მეტი</div>
+        </a>
+      </article>
+
+      <!-- Article 3: Street Art -->
+      <article class="article-3-117 loading">
+        <div class="rectangle-3-118">
+          <img src="{{ url_for('static', filename='images/strit-arti-119.svg') }}" class="strit-arti-119" alt="სტრიტ არტი" />
+          <div class="rectangle-5-120"></div>
+        </div>
+        <img src="{{ url_for('static', filename='images/picture-121.png') }}" class="picture-121" alt="სტრიტ არტის სურათი" />
+        <a href="{{ url_for('box3') }}" class="prototype-link">
+          <div class="button-122">წაიკითხე მეტი</div>
+        </a>
+      </article>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section-123">
+    <p class="text-124">
+      <span class="text-black">
+        ჩვენი პროექტის მიზანია, ხელოვნების საშუალებით ყველასთვის ხელმისაწვდომი და თვალსაჩინო ფორმით გავაშუქოთ მსოფლიოს მნიშვნელოვანი პრობლემები. ვიზუალური ნამუშევრებით ვცდილობთ შევქმნათ სივრცე, სადაც ადამიანებს შეეძლებათ დაფიქრება, გააზრება და ცვლილებების სურვილის გაღვივება.
+      </span>
+    </p>
+
+    <div class="sub-heading-125">
+      <div class="frame-3-126">
+        <img src="{{ url_for('static', filename='images/proeqtis-mizani-127.svg') }}" class="proeqtis-mizani-127" alt="პროექტის მიზანი" />
+        <div class="rectangle-1-128"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="group-1-129">
+      <div class="rectangle-20-130"></div>
+      <p class="text-131">
+        <span class="text-white">developed by Elene Jugeli<br>designed by Nikoloz Jokhadze</span>
+      </p>
+      <p class="text-132">
+        <span class="text-white">all rights reserved under NJ design © 2025</span>
+      </p>
+    </div>
+  </section>
+</div>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+<!-- JavaScript -->
+<script>
+  // Loading animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadingElements = document.querySelectorAll('.loading');
+    loadingElements.forEach((el, index) => {
+      setTimeout(() => {
+        el.style.opacity = '1';
+      }, index * 100);
+    });
+  });
+
+  // Scroll to top button
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.classList.add('show');
+    } else {
+      scrollToTopBtn.classList.remove('show');
+    }
+  });
+
+  scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Add hover effects to articles
+  const articles = document.querySelectorAll('article');
+  articles.forEach(article => {
+    article.addEventListener('mouseenter', function() {
+      this.style.transition = 'all 0.3s ease';
+    });
+  });
+</script>
+</body>
+</html>
